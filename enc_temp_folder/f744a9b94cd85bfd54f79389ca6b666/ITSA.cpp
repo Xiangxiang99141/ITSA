@@ -13,7 +13,7 @@ int main()
 	double km;
 	cin >> ml;
 	km = double(ml * 1.6);
-	cout << fixed << setprecision(1) << km << endl;
+	cout << setprecision(1) << km << endl;
 
 
 }
