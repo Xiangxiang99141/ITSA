@@ -25,7 +25,7 @@ int main()
 {
     string num;
     int col[4];
-    cout << "請輸入數值 : ";
+    //cout << "請輸入數值 : ";
     cin >> num;
      for(int i=0;i<4;i++)
         switch (num[i]) {
@@ -68,7 +68,7 @@ int main()
     //}
     for (int i = 0; i < row; i++) {
         for (int j = 0; j < 4; j++) {
-            cout << num_display[i][col[j]] << " ";
+            cout << num_display[i][col[j]]<<"  ";
         }
         cout << endl;
     }
