@@ -24,7 +24,7 @@ int main()
     else {
         cost = 120 + 160 + ((time - 120) - 120) / 30 * 60;
     }
-    cout << cost;
+    cout << cost << endl;
 }
 
 // 執行程式: Ctrl + F5 或 [偵錯] > [啟動但不偵錯] 功能表
