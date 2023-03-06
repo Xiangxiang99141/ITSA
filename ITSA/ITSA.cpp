@@ -2,10 +2,29 @@
 //
 
 #include <iostream>
+using namespace std;
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    int start_h = 0, start_m = 0;
+    int end_h = 0, end_m = 0;
+    int time = 0;
+    int cost = 0;
+    /*scanf("%d %d", &start_h, &start_m);
+    scanf("%d %d", &end_h, &end_m);*/
+    cin >> start_h >> start_m;
+    cin >> end_h >> end_m;
+    time = (end_h * 60 + end_m) - (start_h * 60 + start_m);
+    if (time >= 0 && time <= 120) {
+        cost = (time / 30) * 30;
+    }
+    else if (time > 120 && time <= 240) {
+        cost = 120 + (time - 120)/30*40;
+    }
+    else {
+        cost = 120 + 160 + ((time - 120) - 120) / 30 * 60;
+    }
+    cout << cost;
 }
 
 // 執行程式: Ctrl + F5 或 [偵錯] > [啟動但不偵錯] 功能表
