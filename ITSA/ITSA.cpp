@@ -5,17 +5,37 @@
 using namespace std;
 int main()
 {
-    int a = 0, storage[8];
-    while (cin >> a) {
-        if (a < 0) a += 256; //因為輸入值是127~-128 所以正數範圍0~127 負數範圍-1~-128
-        for (int i = 0; i < 8; i++) {
-            storage[i] = a % 2;
-            a /= 2;
+#include <iostream>
+    using namespace std;
+    int main()
+    {
+        int a = 0;
+        cin >> a;
+        switch (a) {
+        case 12:
+        case 1:
+        case 2:
+            cout << "Winter\n";
+            break;
+        case 3:
+        case 4:
+        case 5:
+            cout << "Spring\n";
+            break;
+        case 6:
+        case 7:
+        case 8:
+            cout << "Summer\n";
+            break;
+        case 9:
+        case 10:
+        case 11:
+            cout << "Autumn\n";
+            break;
         }
-        for (int i = 7; i >= 0; i--) {
-            cout << storage[i];
-        }
-        cout << "\n";
+
+
+        system("pause");
     }
 
     
