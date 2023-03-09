@@ -5,7 +5,19 @@
 using namespace std;
 int main()
 {
-    std::cout << "Hello World!\n";
+    int a=0,storage[8];
+    while (cin >> a) {
+        if (a < 0) a += 256; //因為輸入值是127~-128 所以正數範圍0~127 負數範圍-1~-128
+        for (int i = 0; i < 8; i++) {
+            storage[i] = a % 2;
+            a /= 2;
+        }
+        for (int i = 7; i >= 0; i--) {
+            cout << storage[i];
+        }
+        cout << "\n";
+    }
+    
     system("pause");
 }
 
