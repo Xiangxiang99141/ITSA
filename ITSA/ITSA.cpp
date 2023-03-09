@@ -15,7 +15,6 @@ int main()
 	km = double(ml * 1.6);
 	cout << fixed << setprecision(1) << km << endl;
 
-
 }
 
 // 執行程式: Ctrl + F5 或 [偵錯] > [啟動但不偵錯] 功能表
