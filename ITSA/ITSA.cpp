@@ -2,22 +2,22 @@
 //
 
 #include <iostream>
+#include <string>
 using namespace std;
 int main()
 {
     int a = 0, storage[8];
+    string str="";
     while (cin >> a) {
         if (a < 0) a += 256; //因為輸入值是127~-128 所以正數範圍0~127 負數範圍-1~-128
         for (int i = 0; i < 8; i++) {
-            storage[i] = a % 2;
+            str = str.insert(0, to_string(a % 2));
             a /= 2;
         }
-        for (int i = 7; i >= 0; i--) {
-            cout << storage[i];
-        }
-        cout << "\n";
+        cout << str << endl ;
+        //printf("%x", ~0xff);
     }
-
+    
     
     system("pause");
 }
