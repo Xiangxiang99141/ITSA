@@ -6,9 +6,10 @@
 using namespace std;
 int main()
 {
-    int a = 0, storage[8];
-    string str="";
+    int a = 0;
+    string str;
     while (cin >> a) {
+        str = "";
         if (a < 0) a += 256; //因為輸入值是127~-128 所以正數範圍0~127 負數範圍-1~-128
         for (int i = 0; i < 8; i++) {
             str = str.insert(0, to_string(a % 2));
