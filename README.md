@@ -29,7 +29,7 @@ int main()
 {
     int x = 0, y = 0;
     while (cin >> x >> y) {
-        if ((pow(x, 2) + pow(y, 2) < pow(R / 2, 2))) {
+        if ((pow(x, 2) + pow(y, 2) <= pow(R / 2, 2))) {
             cout << "inside\n";
         }
         else {
