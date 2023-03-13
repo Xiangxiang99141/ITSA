@@ -13,7 +13,7 @@ int main()
     cout << "這個圓的半徑是(直徑/2) : " << R/2 << endl;
     cout << "請輸入一個整數座標 : \n";*/
     while (cin >> x >> y) {
-        if ((pow(x, 2) + pow(y, 2) < pow(R / 2, 2))) {
+        if ((pow(x, 2) + pow(y, 2) <= pow(R / 2, 2))) {
             cout << "inside\n";
         }
         else {
