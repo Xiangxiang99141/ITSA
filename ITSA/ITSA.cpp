@@ -5,8 +5,23 @@
 using namespace std;
 int main()
 {
-    std::cout << "Hello World!\n";
-    system("pause");
+    
+    int input = 0;
+    while(cin >> input)
+    {
+        int check = 0;
+        for (int i = 2; i <= input - 1; i++) {
+            if (input % i == 0) {
+                check =+ 1;
+            }
+        }
+        if (check == 0) {
+            cout << "YES\n";
+        }
+        else {
+            cout << "NO\n";
+        }
+    }
 }
 
 // 執行程式: Ctrl + F5 或 [偵錯] > [啟動但不偵錯] 功能表
