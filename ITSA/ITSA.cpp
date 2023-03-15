@@ -6,21 +6,15 @@ using namespace std;
 int main()
 {
     
-    int input = 0;
+    int input = 0,sum=0;
     while(cin >> input)
     {
-        int check = 0;
-        for (int i = 2; i <= input - 1; i++) {
-            if (input % i == 0) {
-                check =+ 1;
+        for (int i = 1; i <= input; i++) {
+            if (i % 3 == 0) {
+                sum += i;
             }
         }
-        if (check == 0) {
-            cout << "YES\n";
-        }
-        else {
-            cout << "NO\n";
-        }
+        cout << sum << endl;
     }
 }
 
