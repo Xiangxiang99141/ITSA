@@ -9,13 +9,14 @@ int main()
     int input = 0;
     while(cin >> input)
     {
-        int check = 0;
+        bool check = true;
         for (int i = 2; i <= input - 1; i++) {
             if (input % i == 0) {
-                check =+ 1;
+                check = false;
+                break;
             }
         }
-        if (check == 0) {
+        if (check == true) {
             cout << "YES\n";
         }
         else {
