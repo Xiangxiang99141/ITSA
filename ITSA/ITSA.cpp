@@ -2,11 +2,82 @@
 //
 
 #include <iostream>
+#include <math.h>
 using namespace std;
+
+class Complex {
+private:
+    int real, imaginary;
+public:
+    //建構子
+    Complex(int r = 0, int i = 0) {
+        real = r;
+        imaginary = i;
+    }
+
+    //重新定義運算子
+    Complex operator + (Complex const& obj) {
+        Complex result;
+        result.real = real + obj.real;
+        result.imaginary = imaginary + obj.imaginary;
+        return result;
+    }
+    Complex operator - (Complex const& obj) {
+        Complex result;
+        result.real = real - obj.real;
+        result.imaginary = imaginary - obj.imaginary;
+        return result;
+    }
+    Complex operator * (Complex const& obj) {
+        Complex result;
+        result.real = (real * obj.real)-(imaginary*obj.imaginary);
+        result.imaginary = (imaginary * obj.real) + (real*obj.imaginary);
+        return result;
+    }
+    Complex operator / (Complex const& obj) {
+        Complex result;
+        result.real = ((real * obj.real) + (imaginary * obj.imaginary)) / (pow(obj.real,2) + pow(obj.imaginary,2));
+        result.imaginary = ((imaginary * obj.real) - (real * obj.imaginary))/ (pow(obj.real, 2) + pow(obj.imaginary, 2));
+        return result;
+    }
+
+    void print() {
+        cout << real << " " << imaginary << endl;
+    }
+
+};
+
 int main()
 {
-    std::cout << "Hello World!\n";
-    system("pause");
+    int n = 0;
+    while (cin >> n) {
+        Complex c[20];
+        for(int i=0;i<n;i++)
+        {
+            char opr;
+            int ar, ai, br, bi;
+            cin >> opr >> ar >> ai >> br >> bi;
+            Complex a(ar, ai);
+            Complex b(br, bi);
+            switch (opr) {
+            case '+':
+                c[i] = a + b;
+                break;
+            case '-':
+                c[i] = a - b;
+                break;
+            case '*':
+                c[i] = a * b;
+                break;
+            case '/':
+                c[i] = a / b;
+                break;
+            }
+        }
+        for (int i = 0; i < n; i++) {
+            c[i].print();
+        }
+    }
 }
 
 // 執行程式: Ctrl + F5 或 [偵錯] > [啟動但不偵錯] 功能表
