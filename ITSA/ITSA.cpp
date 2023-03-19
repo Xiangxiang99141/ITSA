@@ -2,11 +2,84 @@
 //
 
 #include <iostream>
+#include <string>
+#include <sstream>
+#include <vector>
 using namespace std;
+//排序
+//void cardsort(vector<string>& a, int n) {
+//	for (int i = 0; i < n; i++) {
+//		for (int j=0; j < n; j++) {
+//			if (a[i][0] > a[j][0]) {
+//				string t;
+//				t = a[i]; a[i] = a[j]; a[j] = t;
+//			}
+//		}
+//	}
+//}
+
+void cardsort(vector<string>& a, int n) {
+	vector<int> b;
+	for (int i = 0; i < n; i++) {
+		switch (a[i][0]) {
+		case 'S':
+			b.push_back(stoi(a[i].substr('S'))+400);
+		case 'H':
+			b.push_back(stoi(a[i].substr('H'))+300);
+		case 'D':
+			b.push_back(stoi(a[i].substr('D')) + 200);
+		case 'C ':
+			b.push_back(stoi(a[i].substr('D')) + 100);
+		}
+	}
+
+	for (int i = 0; i < b.size(); i++) {
+		for (int j=0; j < n; j++) {
+			if (b[i] > b[j]) {
+				int t;
+				t = b[i]; b[i] = b[j]; b[j] = t;
+			}
+		}
+	}
+	a.clear();
+	for (int i = 0; i < n; i++) {
+		a.push_back(b[i]);
+	}
+	
+}
+
 int main()
 {
-    std::cout << "Hello World!\n";
-    system("pause");
+	int n = 0;
+	while (cin >> n) {
+		string str1,s;
+		vector<string> str2;
+		vector<string> all;
+		cin.ignore();
+		for (int i = 0; i < n; i++) {
+			getline(cin, str1);
+			istringstream x(str1);
+			while (getline(x, s, ' ')) {
+				str2.push_back(s);
+			}
+			cardsort(str2, str2.size());
+		//	string t;
+		//	for (int j = 0; j < str2.size();j++) {
+		//		if (i == str2.size() - 1) 
+		//		{
+		//			t += str2[j];
+		//		}
+		//		else{
+		//			t += str2[j] + " ";
+		//		}
+		//	}
+		//	str2.clear();
+		//	all.push_back(t);
+		//}
+		//for (int i = 0; i < all.size(); i++) {
+		//		cout << all[i] << endl;
+		//}
+	}
 }
 
 // 執行程式: Ctrl + F5 或 [偵錯] > [啟動但不偵錯] 功能表
