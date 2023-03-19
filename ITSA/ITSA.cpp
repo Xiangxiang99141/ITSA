@@ -2,11 +2,37 @@
 //
 
 #include <iostream>
+#include <vector>
+#include <string>
+#include <sstream>
+//#include <array>
 using namespace std;
 int main()
 {
-    std::cout << "Hello World!\n";
-    system("pause");
+    int row = 0, col = 0;
+    string str1,t;
+    vector<int> a[10];
+    while (cin >> row >> col) {
+        cin.ignore();
+        for (int i = 0; i < row; i++) {
+            getline(cin, str1);
+            istringstream x(str1);
+            int n = 0;
+            while (getline(x, t, ' ')) {
+                a[i].push_back(stoi(t));
+            }
+        }
+        for (int i = 0; i < col; i++) {
+            for (int j = 0; j < row; j++) {
+                if (j == row - 1) cout << a[j][i];
+                else cout << a[j][i] << " ";
+            }
+            cout << endl;
+        }
+        for (int i = 0; i <= row-1; i++) {
+            a[i] = {};
+        }
+    }
 }
 
 // 執行程式: Ctrl + F5 或 [偵錯] > [啟動但不偵錯] 功能表
