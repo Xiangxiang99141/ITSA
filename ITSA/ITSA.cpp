@@ -2,11 +2,46 @@
 //
 
 #include <iostream>
+#include <sstream>
+#include <string>
+#include <vector>
+#include <algorithm>
+
 using namespace std;
-int main()
-{
-    std::cout << "Hello World!\n";
-    system("pause");
+
+int main() {
+    char alp[][2] = {
+        {'a','A'},{'b','B'},{'c','C'},{'d','D'},{'e','E'},{'f','F'},
+        {'g','G'},{'h','H'},{'i','I'},{'j','J'},{'k','K'},{'l','L'},
+        {'m','M'},{'n','N'},{'o','O'},{'p','P'},{'q','Q'},{'r','R'},
+        {'s','S'},{'t','T'},{'u','U'},{'v','V'},{'w','W'},{'x','X'},
+        {'y','Y'},{'z','Z'}
+    };
+    //char alp[] = { 'a', 'b', 'c', 'd', 'e', 'f', 'g',
+    //    'h', 'i', 'j', 'k', 'l', 'm', 'n',
+    //    'o', 'p', 'q', 'r', 's', 't', 'u',
+    //    'v', 'w', 'x', 'y', 'z' };
+    string str1 = "", t;
+    while (getline(cin, str1)) {
+        t = "";
+        vector<string> splitstr;
+        //transform(str1.begin(), str1.end(), str1.begin(), tolower);
+        stringstream x(str1);
+        while (getline(x, t, ' ')) {
+            splitstr.push_back(t);
+        }
+        cout << splitstr.size() << endl;
+        for (int i = 0; i < 26; i++) {
+            if (count(str1.begin(), str1.end(), alp[i][0])!=0 || count(str1.begin(), str1.end(), alp[i][1]) != 0) {
+                if (count(str1.begin(), str1.end(), alp[i][0]) != 0) {
+                    cout << alp[i][0] << " : " << count(str1.begin(), str1.end(), alp[i][0]) << endl;
+                }
+                if (count(str1.begin(), str1.end(), alp[i][1]) != 0) {
+                    cout << alp[i][0] << " : " << count(str1.begin(), str1.end(), alp[i][1]) << endl;
+                }
+            }
+        }
+    }
 }
 
 // 執行程式: Ctrl + F5 或 [偵錯] > [啟動但不偵錯] 功能表
