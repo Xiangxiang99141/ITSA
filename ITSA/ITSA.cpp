@@ -63,12 +63,11 @@ int main()
             cout << "請不要亂輸入";
             break;
         }
-    // for (int i = 0; i < 4; i++) {
-    //     cout << col[i];
-    //}
+
     for (int i = 0; i < row; i++) {
         for (int j = 0; j < 4; j++) {
-            cout << num_display[i][col[j]]<<"  ";
+            cout << num_display[i][col[j]];
+            if (j < 3) cout << ' ';
         }
         cout << endl;
     }
