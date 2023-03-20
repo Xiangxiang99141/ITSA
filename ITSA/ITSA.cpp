@@ -6,9 +6,7 @@
 #include <string>
 #include <vector>
 #include <algorithm>
-
 using namespace std;
-
 int main() {
     char alp[][2] = {
         {'a','A'},{'b','B'},{'c','C'},{'d','D'},{'e','E'},{'f','F'},
@@ -17,28 +15,20 @@ int main() {
         {'s','S'},{'t','T'},{'u','U'},{'v','V'},{'w','W'},{'x','X'},
         {'y','Y'},{'z','Z'}
     };
-    //char alp[] = { 'a', 'b', 'c', 'd', 'e', 'f', 'g',
-    //    'h', 'i', 'j', 'k', 'l', 'm', 'n',
-    //    'o', 'p', 'q', 'r', 's', 't', 'u',
-    //    'v', 'w', 'x', 'y', 'z' };
     string str1 = "", t;
     while (getline(cin, str1)) {
-        t = "";
         vector<string> splitstr;
-        //transform(str1.begin(), str1.end(), str1.begin(), tolower);
         stringstream x(str1);
         while (getline(x, t, ' ')) {
             splitstr.push_back(t);
         }
         cout << splitstr.size() << endl;
         for (int i = 0; i < 26; i++) {
-            if (count(str1.begin(), str1.end(), alp[i][0])!=0 || count(str1.begin(), str1.end(), alp[i][1]) != 0) {
-                if (count(str1.begin(), str1.end(), alp[i][0]) != 0) {
-                    cout << alp[i][0] << " : " << count(str1.begin(), str1.end(), alp[i][0]) << endl;
-                }
-                if (count(str1.begin(), str1.end(), alp[i][1]) != 0) {
-                    cout << alp[i][0] << " : " << count(str1.begin(), str1.end(), alp[i][1]) << endl;
-                }
+            if (count(str1.begin(), str1.end(), alp[i][0]) != 0) {
+                cout << alp[i][0] << " : " << count(str1.begin(), str1.end(), alp[i][0]) << endl;
+            }
+            if (count(str1.begin(), str1.end(), alp[i][1]) != 0) {
+                cout << alp[i][0] << " : " << count(str1.begin(), str1.end(), alp[i][1]) << endl;
             }
         }
     }
