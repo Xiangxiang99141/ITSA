@@ -11,7 +11,7 @@ int main()
 {
     int row = 0, col = 0;
     string str1,t;
-    vector<int> a[10];
+    vector<vector<int>> a;
     while (cin >> row >> col) {
         cin.ignore();
         for (int i = 0; i < row; i++) {
@@ -19,7 +19,7 @@ int main()
             istringstream x(str1);
             int n = 0;
             while (getline(x, t, ' ')) {
-                a[i].push_back(stoi(t));
+                a.
             }
         }
         for (int i = 0; i < col; i++) {
