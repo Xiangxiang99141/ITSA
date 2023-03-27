@@ -17,7 +17,10 @@ int main()
 {
     string str_input, str_all;
     while (cin >> str_input >> str_all) {
-        cout << clacstrcount(str_input,0,str_all) << endl;
+
+    //cin >> str_input;
+    //cin >> str_all;
+    cout << clacstrcount(str_input,0,str_all) << endl;
     }
 }
 
