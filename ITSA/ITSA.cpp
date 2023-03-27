@@ -16,10 +16,12 @@ int clacstrcount(string &s,int offset,string &l) {
 int main()
 {
     string str_input, str_all;
-    cin >> str_input;
-    cin >> str_all;
+    while (cin >> str_input >> str_all) {
+
+    //cin >> str_input;
+    //cin >> str_all;
     cout << clacstrcount(str_input,0,str_all) << endl;
-    return 0;
+    }
 }
 
 // 執行程式: Ctrl + F5 或 [偵錯] > [啟動但不偵錯] 功能表
