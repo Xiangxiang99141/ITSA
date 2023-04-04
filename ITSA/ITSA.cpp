@@ -5,8 +5,13 @@
 using namespace std;
 int main()
 {
-    std::cout << "Hello World!\n";
-    system("pause");
+    int x;
+    while(cin >> x){
+        if (x % 4 != 0) cout << "Common Year\n";
+        else if (x % 100 != 0) cout << "Bissextile Year\n";
+        else if (x%400!=0) cout << "Common Year\n";
+        else cout << "Bissextile Year\n";
+    }
 }
 
 // 執行程式: Ctrl + F5 或 [偵錯] > [啟動但不偵錯] 功能表
