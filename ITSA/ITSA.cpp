@@ -2,11 +2,44 @@
 //
 
 #include <iostream>
+#include <string>
+#include <vector>
+#include <cctype>
 using namespace std;
 int main()
 {
-    std::cout << "Hello World!\n";
-    system("pause");
+    string input,tmp;
+    vector <string> split_str;
+    getline(cin, input);
+    if (input.size() <= 1000) {
+        for (int i = 0; i < input.size(); i++) {
+            input[i] = tolower(input[i]);
+        }
+        for (int i = 0; i < input.size(); i++) {
+            if (input[i] != ' ') {
+                tmp += input[i];
+            }
+            else {
+                for (int j = 0; j < split_str.size(); j++) {
+                    if (tmp == split_str[j]) {
+                        tmp.clear();
+                        break;
+                    }
+                }
+                if (tmp.empty()) {
+                    continue;
+                }
+                else {
+                    split_str.push_back(tmp);
+                    tmp.clear();
+                }
+            }
+        }
+        for (int i = 0; i < split_str.size(); i++) {
+            cout << split_str[i];
+            cout << (i == split_str.size() - 1 ? '\n' : ' ');
+        }
+    }
 }
 
 // 執行程式: Ctrl + F5 或 [偵錯] > [啟動但不偵錯] 功能表
