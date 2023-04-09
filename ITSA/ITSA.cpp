@@ -2,11 +2,16 @@
 //
 
 #include <iostream>
+#include <string>
 using namespace std;
 int main()
 {
-    std::cout << "Hello World!\n";
-    system("pause");
+	string input;
+	cin >> input;
+	for (int i = 0; i < input.size();i++) {
+		cout << (char)((int)(input[i]) + 1);
+	}
+
 }
 
 // 執行程式: Ctrl + F5 或 [偵錯] > [啟動但不偵錯] 功能表
