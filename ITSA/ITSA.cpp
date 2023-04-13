@@ -1,11 +1,31 @@
 ﻿// ITSA.cpp : 此檔案包含 'main' 函式。程式會於該處開始執行及結束執行。
 //
 
+#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
+
+#include <cstdio>
 using namespace std;
 int main()
 {
-    std::cout << "Hello World!\n";
+    //a1蘋果(15) a2柳丁(20) 桃子(30)
+    string input,tmp;
+    vector <>
+    int N = 0, a1 = 0, a2 = 0, a3 = 0,total=0;
+    cin >> input;
+
+    total = a1 * 15 + a2 * 20 + a3 * 30;
+    if (total <= N) {
+        total = N - total;
+        int one = 0, five = 0, fifty = 0;
+        fifty = total / 50;
+        five = (total % 50) / 5;
+        one = (total % 50) % 5;
+        cout << one << "," << five << "," << fifty << endl;
+    }
+    else {
+        cout << "0" << endl;
+    }
     system("pause");
 }
 
