@@ -117,4 +117,4 @@ int main()
 ### 結果
 ---
 ![結果](https://cdn.discordapp.com/attachments/1083434363968032828/1096784427306193057/image.png)
-![ITSA](https://cdn.discordapp.com/attachments/1083434363968032828/1096784617396244601/image.png)
+![ITSA](https://cdn.discordapp.com/attachments/1083434363968032828/1096815772694741022/image.png)
