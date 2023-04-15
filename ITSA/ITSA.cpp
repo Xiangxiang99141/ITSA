@@ -34,12 +34,23 @@ int main()
                     tmp.clear();
                 }
             }
+            if (i == input.size() - 1){
+                for (int j = 0; j < split_str.size(); j++) {
+                    if (tmp == split_str[j]) {
+                        tmp.clear();
+                        break;
+                    }
+                }
+                split_str.push_back(tmp);
+                tmp.clear();
+            }
         }
         for (int i = 0; i < split_str.size(); i++) {
             cout << split_str[i];
             cout << (i == split_str.size() - 1 ? '\n' : ' ');
         }
     }
+    return 0;
 }
 
 // 執行程式: Ctrl + F5 或 [偵錯] > [啟動但不偵錯] 功能表
