@@ -1,19 +1,33 @@
 ﻿// ITSA.cpp : 此檔案包含 'main' 函式。程式會於該處開始執行及結束執行。
 //
 
-#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
-
-#include <cstdio>
+#include <string>
+#include <vector>
 using namespace std;
+void split_Str(string s,string splchar,int current,vector<string>&buf) {
+    int next;
+    while (1) {
+        next = s.find_first_of(splchar, current);
+        if (next != current) {
+            string tmp = s.substr(current, next - current);
+            if (tmp.size() != 0) { //忽略空字串
+                buf.push_back(tmp);
+            }
+        }
+        if (next == string::npos) break;
+        current = next + 1;
+    }
+}
 int main()
 {
     //a1蘋果(15) a2柳丁(20) 桃子(30)
-    string input,tmp;
-    vector <>
+    string input;
+    vector<string> buf;
     int N = 0, a1 = 0, a2 = 0, a3 = 0,total=0;
     cin >> input;
-
+    split_Str(input, ",", 0, buf);
+    N = stoi(buf[0]); a1 = stoi(buf[1]); a2 = stoi(buf[2]); a3 = stoi(buf[3]);
     total = a1 * 15 + a2 * 20 + a3 * 30;
     if (total <= N) {
         total = N - total;
