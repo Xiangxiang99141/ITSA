@@ -89,6 +89,24 @@ int main()
   - vector <string> split_str; 宣告 `split_str` 動態字串變數
   - getline(cin, input); 讀取整行字串到 `input`
   -  if (input.size() <= 1000) 判斷字串小於1000字元
+     - for 迴圈
+       - 使用tolower將文字大寫轉小寫
+     - for迴圈
+        - 判斷字元是否為空白   
+           成立：存入 `tmp`   
+           否則：
+           - for 迴圈
+             - 判斷之前是否有出現這個詞
+             - 如果出現就清除 `tmp` 並跳出迴圈
+           - 判斷 `tmp` 是否為空     
+              成立：繼續下一輪迴圈   
+              否則：將 `tmp` 存入 `split_str` 並將 `tmp` 清除
+        - 判斷是否為最後一個位元
+          - 成立：使用 `for` 迴圈判斷是否有相同字詞
+             - 成立：清除 `tmp` 跳出迴圈與判斷式
+             - 將 `tmp` 存入 `split_str`
+             - 清除 `tmp`
+     - for迴圈印出 `split_str` 內容
 
 
 
