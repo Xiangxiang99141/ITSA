@@ -5,7 +5,7 @@
 using namespace std;
 int main()
 {
-    int n = 0, t[24] = { 0 },max_car =0; //n筆訂單 t[24小時]
+    int n = 0, t[24] = { 0 },max_car; //n筆訂單 t[24小時]
     cin >> n;
     for (int i = 0; i < n; i++) {
         int a = 0, b = 0;
@@ -14,13 +14,11 @@ int main()
             t[j]++;
         }
     }
-    inputN = t[0];//將不需要的空間再次利用 
-    int i = 0;
-    do {
-        max_car = max(max_car , t[i]);
-        i++;
-    } while (i < 24);
-    cout << max_car;
+    max_car = t[0];//將不需要的空間再次利用 
+    for (int i = 0; i < 24; i++) {
+        if (max_car < t[i]) max_car = t[i];
+    }
+    cout << max_car << endl;
     return 0;
 }
 
