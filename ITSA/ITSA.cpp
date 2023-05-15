@@ -5,8 +5,23 @@
 using namespace std;
 int main()
 {
-    std::cout << "Hello World!\n";
-    system("pause");
+    int n = 0, t[24] = { 0 },max_car =0; //n筆訂單 t[24小時]
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        int a = 0, b = 0;
+        cin >> a >> b;
+        for (int j = a - 1; j < b - 1; j++) {
+            t[j]++;
+        }
+    }
+    inputN = t[0];//將不需要的空間再次利用 
+    int i = 0;
+    do {
+        max_car = max(max_car , t[i]);
+        i++;
+    } while (i < 24);
+    cout << max_car;
+    return 0;
 }
 
 // 執行程式: Ctrl + F5 或 [偵錯] > [啟動但不偵錯] 功能表
