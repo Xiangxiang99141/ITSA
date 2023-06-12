@@ -3,22 +3,18 @@
 
 #include <iostream>
 using namespace std;
+int fibo(int a) {
+    if (a == 0 || a == 1)
+        return a + 1;
+    else if (a > 1) {
+        return fibo(a-1) + fibo(a / 2);
+    }
+}
 int main()
 {
-    int n = 0, t[24] = { 0 },max_car; //n筆訂單 t[24小時]
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        int a = 0, b = 0;
-        cin >> a >> b;
-        for (int j = a - 1; j < b - 1; j++) {
-            t[j]++;
-        }
-    }
-    max_car = t[0];//將不需要的空間再次利用 
-    for (int i = 0; i < 24; i++) {
-        if (max_car < t[i]) max_car = t[i];
-    }
-    cout << max_car << endl;
+    int Input = 0;
+    cin >> Input;
+    cout << fibo(Input) << endl;
     return 0;
 }
 

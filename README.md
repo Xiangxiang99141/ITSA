@@ -1,14 +1,15 @@
 ﻿# ITSA題目
 
 ## 題目19. 最少派車數
-問題描述：
-某遊覽車派遣公司共收到n筆任務訂單，訂單中詳細記載發車時間s和返回時間d。每一輛遊覽車只要任務時間不衝突，可立即更換司機繼續上路執行任務。請問該公司至少需要調遣多少車輛才足以應付需求？
+問題描述：   
+給定下列遞迴函式 :   
+![Ques](https://cdn.discordapp.com/attachments/1083434363968032828/1117745539417636874/C_RU06.JPG)
    
 輸入說明：
-程式的輸入包含兩行數字，第一行包含一個正整數n，1 ≤ n ≤ 30，代表第二行有n筆訂單的出發時間和返回時間s1, d1, s2, d2, ..., sn, dn，0 < si < di ≤ 24，而此2n個正整數間以空格隔開。
+輸入值為一個大於 1 的整數。
    
 輸出說明：
-輸出最少車輛需求數。
+f(k) 的計算結果。
 
 <table>
     <tr>
@@ -16,8 +17,12 @@
       <th>輸出範例:</th>
     </tr>
     <tr>
-      <td>3 <br/>1 6 3 12 6 18</td>
-      <td align="center">2</td>
+      <td align="center">10</td>
+      <td align="center">60</td>
+    </tr>
+    <tr>
+      <td align="center">12</td>
+      <td align="center">94</td>
     </tr>
 </table>
 
@@ -28,22 +33,18 @@
 ```cpp
 #include <iostream>
 using namespace std;
+int fibo(int a) {
+    if (a == 0 || a == 1)
+        return a + 1;
+    else if (a > 1) {
+        return fibo(a-1) + fibo(a / 2);
+    }
+}
 int main()
 {
-    int n = 0, t[24] = { 0 },max_car; //n筆訂單 t[24小時]
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        int a = 0, b = 0;
-        cin >> a >> b;
-        for (int j = a - 1; j < b - 1; j++) {
-            t[j]++;
-        }
-    }
-    max_car = t[0];
-    for (int i = 0; i < 24; i++) {
-        if (max_car < t[i]) max_car = t[i];
-    }
-    cout << max_car << endl;
+    int Input = 0;
+    cin >> Input;
+    cout << fibo(Input) << endl;
     return 0;
 }
 ```
@@ -51,29 +52,16 @@ int main()
 
 `#include <iostream>` 導入 iostream  
 `int main(){}` 主程式區塊     
-`int n = 0, t[24] = { 0 },max_car` 分別宣告 `n` 用來有幾筆訂單 、 `t`用來儲存遊覽車的時段並將初始值設為0 、 `max_car` 用來儲存需要多少車
-```cpp
-   for (int i = 0; i < n; i++) {
-        int a = 0, b = 0;
-        cin >> a >> b;
-        for (int j = a - 1; j < b - 1; j++) {
-            t[j]++;
-        }
-    }
-```
-使用 `for` 迴圈 讀入訂單，並使用 `for` 迴圈將遊覽車出班時間在 `t`陣列中加一
+宣告一個 `Input` 整數變數用來儲存輸入值
 
-```cpp
-   for (int i = 0; i < 24; i++) {
-        if (max_car < t[i]) max_car = t[i];
-    }
-```
-找出對多的遊覽車班次
+建立一個 `fibo(int a)` 函數並傳入一個整數 a
+ - 判斷輸入值 `a` 是不是等於 `0` 或 `1`   
+ 如果是就回傳 a+1   
+ 否則如果 `a>1` 就回傳呼叫 fibo(a-1) + fibo(n/2)
 
 ### 撰寫邏輯
-將公車時間逐一記錄起來，並找出最多需要的遊覽車
-
-
+依照題目所知，當 `n=0` 或是 `n=1` 時結果為 `n-1`   
+`n>1` 時結果為 f(n-1)+f(n/2)
 
 ### 結果
 ---
