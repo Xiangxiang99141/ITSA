@@ -1,38 +1,47 @@
 ﻿// ITSA.cpp : 此檔案包含 'main' 函式。程式會於該處開始執行及結束執行。
 //
 
-#include <iostream>
-#include <vector>
-#include <string>
-#include <sstream>
-//#include <array>
+
+#include <iostream>  
+#include <vector>  
+#include <string>  
 using namespace std;
+void split2Vec(string, int, vector<int>&, string);
 int main()
 {
-    int row = 0, col = 0;
-    string str1,t;
-    vector<vector<int>> a;
-    while (cin >> row >> col) {
-        cin.ignore();
-        for (int i = 0; i < row; i++) {
-            getline(cin, str1);
-            istringstream x(str1);
-            int n = 0;
-            while (getline(x, t, ' ')) {
-                a.
-            }
-        }
-        for (int i = 0; i < col; i++) {
-            for (int j = 0; j < row; j++) {
-                if (j == row - 1) cout << a[j][i];
-                else cout << a[j][i] << " ";
-            }
-            cout << endl;
-        }
-        for (int i = 0; i <= row-1; i++) {
-            a[i] = {};
-        }
+
+    int row = 0, col = 0; //row 行 col 列  
+    cin >> row >> col;
+    vector<int> buf;
+    cin.ignore();
+    for (int i = 0; i < row; i++) {
+        string s;
+        getline(cin, s);
+        split2Vec(s, 0, buf, " ");
     }
+    int count = 0;
+    for (int i = 0; i < col; i++) {
+        for (int j = 0; j < row; j++) {
+            if (count >= buf.size()) count = i;
+            cout << buf[count] << " ";
+            count += col;
+        }
+        cout << endl;
+    }
+    buf.clear();
+    return 0;
+}
+
+void split2Vec(string s, int offset, vector<int>& buf, string symbol) {
+    size_t next = 0;
+    do {
+        next = s.find_first_of(symbol, offset);
+        if (offset != next) {
+            int tmp = stoi(s.substr(offset, next - offset));
+            buf.push_back(tmp); // 空字串不儲存  
+        }
+        offset = next + 1;
+    } while (next != string::npos);
 }
 
 // 執行程式: Ctrl + F5 或 [偵錯] > [啟動但不偵錯] 功能表
