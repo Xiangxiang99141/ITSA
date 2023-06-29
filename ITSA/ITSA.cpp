@@ -2,46 +2,28 @@
 //
 
 
-#include <iostream>  
-#include <vector>  
-#include <string>  
+#include <iostream>
+#include <vector>
+#include <string>
 using namespace std;
-void split2Vec(string, int, vector<int>&, string);
 int main()
 {
-
-    int row = 0, col = 0; //row 行 col 列  
-    cin >> row >> col;
-    vector<int> buf;
-    cin.ignore();
-    for (int i = 0; i < row; i++) {
-        string s;
-        getline(cin, s);
-        split2Vec(s, 0, buf, " ");
-    }
-    int count = 0;
-    for (int i = 0; i < col; i++) {
-        for (int j = 0; j < row; j++) {
-            if (count >= buf.size()) count = i;
-            cout << buf[count] << " ";
-            count += col;
-        }
-        cout << endl;
-    }
-    buf.clear();
-    return 0;
-}
-
-void split2Vec(string s, int offset, vector<int>& buf, string symbol) {
-    size_t next = 0;
-    do {
-        next = s.find_first_of(symbol, offset);
-        if (offset != next) {
-            int tmp = stoi(s.substr(offset, next - offset));
-            buf.push_back(tmp); // 空字串不儲存  
-        }
-        offset = next + 1;
-    } while (next != string::npos);
+	int row, col,count=0; //row 行 col 列
+	cin >> row >> col;
+	int* array = new int[row * col];
+	for (int i = 0; i < row * col; i++) {
+		cin >> array[i];
+	}
+	for (int i = 0; i < col; i++) {
+		for (int j = 0; j < row; j++) {
+			count++;
+			cout << array[j * col + i];
+			if (count % row != 0) cout << " ";
+		}
+		cout << endl;
+	}
+	delete[] array;
+	return 0;
 }
 
 // 執行程式: Ctrl + F5 或 [偵錯] > [啟動但不偵錯] 功能表
