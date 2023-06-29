@@ -2,20 +2,14 @@
 //
 
 #include <iostream>
+#include <numeric>
 using namespace std;
-int fibo(int a) {
-    if (a == 0 || a == 1)
-        return a + 1;
-    else if (a > 1) {
-        return fibo(a-1) + fibo(a / 2);
-    }
-}
+
 int main()
 {
-    int Input = 0;
-    cin >> Input;
-    cout << fibo(Input) << endl;
-    return 0;
+	int a, b;
+	cin >> a >> b;
+	cout << gcd(a, b) << endl;
 }
 
 // 執行程式: Ctrl + F5 或 [偵錯] > [啟動但不偵錯] 功能表
