@@ -1,13 +1,14 @@
 # ITSA題目
 
 ## 題目
-問題描述：
-
+問題描述：   
+迴文是指從前面讀和從後面讀都相同的一個數字或一段文字。例如下列每一五位數的整數都是迴文： 123321 ， 55555 ， 45554 ， 11611 。請撰寫一個程式，判斷它是否迴文。
    
-輸入說明：
+輸入說明：   
+輸入一個正整數。
 
-輸出說明：
-
+輸出說明：   
+迴文印出 ” 是 ” ；非回文印出 ” 否 ” 。
 
 <table>
     <tr>
@@ -15,12 +16,16 @@
       <th>輸出範例:</th>
     </tr>
     <tr>
-      <td align="center"></td>
-      <td align="center"></td>
+      <td align="center">123321</td>
+      <td align="center">YES</td>
     </tr>
     <tr>
-      <td align="center"></td>
-      <td align="center"></td>
+      <td align="center">1556551</td>
+      <td align="center">YES</td>
+    </tr>
+    <tr>
+      <td align="center">1244221</td>
+      <td align="center">NO</td>
     </tr>
 </table>
 
