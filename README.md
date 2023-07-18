@@ -75,5 +75,5 @@ int main()
 
 ### 結果
 ---
-![結果]()
-![ITSA]()
+![結果](https://cdn.discordapp.com/attachments/1083434363968032828/1130848670145851463/image.png)
+![ITSA](https://cdn.discordapp.com/attachments/1083434363968032828/1130848100253188096/image.png)

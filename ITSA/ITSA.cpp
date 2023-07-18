@@ -5,20 +5,22 @@
 using namespace std;
 int main()
 {
-    bool error = 0;
-    string s;
-    cin >> s;
-    int ssize = s.size();
-    for (int i = 0; i < ssize; i++) {
-        if (s[i] == s[ssize - 1 - i]);
-        else {
-            error  = 1;
-            break;
+    while (true) {
+        bool error = 0;
+        string s;
+        cin >> s;
+        int ssize = s.size();
+        for (int i = 0; i < ssize; i++) {
+            if (s[i] == s[ssize - 1 - i]);
+            else {
+                error  = 1;
+                break;
+            }
         }
+        if (!error) cout << "YES";
+        else cout << "NO";
+        cout << endl;
     }
-    if (!error) cout << "YES";
-    else cout << "NO";
-    cout << endl;
     return 0;
 }
 
