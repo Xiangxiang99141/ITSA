@@ -6,12 +6,26 @@
 using namespace std;
 int main()
 {
+	string ori = "!@#$%^&*()_++`1234567890-=={}||qwertyuiop[]\\:""asdfghjkl;''<>??zxcvbnm,.//";
 	string input;
-	cin >> input;
-	for (int i = 0; i < input.size();i++) {
-		cout << (char)((int)(input[i]) + 1);
+	getline(cin, input);
+	int ori_len = ori.size();
+	int len = input.size();
+	for (int i = 0; i < len; i++) {
+		input[i] = tolower(input[i]);
+		for (int j = 0; j < ori_len; j++) {
+			if (input[i] == ' ') {
+				break;
+			}
+			else if (input[i] == ori[j]) {
+				input[i] = ori[j + 1];
+				break;
+			}
+		}
+		cout << input[i];
 	}
-
+	cout << endl;
+	return 0;
 }
 
 // 執行程式: Ctrl + F5 或 [偵錯] > [啟動但不偵錯] 功能表
